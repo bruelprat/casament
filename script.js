@@ -40,15 +40,21 @@ function playFullscreen() {
 
   video.style.display = "block";
 
-  // Espera un frame perquè el navegador pinti el vídeo
-  setTimeout(() => {
+  requestAnimationFrame(() => {
     video.play();
-    video.muted = false; // si vols activar el so
-  }, 50);
+  });
 
   video.onended = () => {
     video.style.display = "none";
     document.querySelector("header").classList.remove("hidden");
     document.querySelector("main").classList.remove("hidden");
   };
+}
+
+  video.onended = () => {
+    video.style.display = "none";
+    document.querySelector("header").classList.remove("hidden");
+    document.querySelector("main").classList.remove("hidden");
+  };
+
 }
